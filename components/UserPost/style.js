@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 import { getFontFamily } from '../../utils/helper';
 
 const style = StyleSheet.create({
-  userItem: {
+  userPostWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
-    height: 'auto',
+    width: '100%',
+    marginBottom: 15,
+  },
+  userInfo: {
+    display: 'flex',
+    flexDirection: 'row',
   },
   imageWrapper: {
     height: 65,
@@ -24,16 +26,29 @@ const style = StyleSheet.create({
     borderRadius: 50,
     overflow: 'hidden',
   },
-  textContainer: {
-    width: 65,
-    overflow: 'hidden',
+  userPostImage: {
+    width: '100%',
+    height: 150,
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  userDetails: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 5,
+    marginLeft: 10,
   },
   userName: {
-    fontSize: 14,
+    fontSize: 16,
     marginTop: 5,
     fontFamily: getFontFamily('Inter_18pt', 600),
-    textAlign: 'center',
-    color: '#022150',
+    color: '#000000',
+  },
+  title: {
+    fontSize: 12,
+    fontFamily: getFontFamily('Inter_18pt', 400),
+    color: '#79869F',
   },
 });
 

@@ -4,7 +4,7 @@ import { User, UserResponse } from '../constants/type';
 
 const PAGE_SIZE = 4;
 
-const useUsers = () => {
+const useGetAllUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -45,4 +45,4 @@ const useUsers = () => {
   return { users, loading, error, loadMore: loadUsers, hasMore };
 };
 
-export default useUsers;
+export default useGetAllUsers;

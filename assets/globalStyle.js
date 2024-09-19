@@ -17,6 +17,14 @@ const style = StyleSheet.create({
     minHeight: 70,
     width: '100%',
   },
+  userPostWrapper: {
+    marginTop: 40,
+    marginBottom: 12,
+    minHeight: 70,
+    width: '100%',
+    height: '55%',
+    overflow: 'hidden',
+  },
   error: {
     color: 'red',
     textAlign: 'center',
