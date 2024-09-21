@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { getFontFamily } from '../../utils/helper';
+import { horizontalScale, scaleFontSize, verticalScale } from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   userPostWrapper: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    marginBottom: 15,
+    marginBottom: verticalScale(15),
   },
   userInfo: {
     display: 'flex',
@@ -15,7 +16,7 @@ const style = StyleSheet.create({
   imageWrapper: {
     height: 65,
     width: 65,
-    padding: 7,
+    padding: horizontalScale(7),
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#F35BAC',
@@ -30,23 +31,23 @@ const style = StyleSheet.create({
     width: '100%',
     height: 150,
     borderRadius: 10,
-    marginTop: 10,
-    marginBottom: 5,
+    marginTop: verticalScale(10),
+    marginBottom: verticalScale(5),
   },
   userDetails: {
     display: 'flex',
     flexDirection: 'column',
     gap: 5,
-    marginLeft: 10,
+    marginLeft: horizontalScale(10),
   },
   userName: {
-    fontSize: 16,
-    marginTop: 5,
+    fontSize: scaleFontSize(16),
+    marginTop: verticalScale(5),
     fontFamily: getFontFamily('Inter_18pt', 600),
     color: '#000000',
   },
   title: {
-    fontSize: 12,
+    fontSize: scaleFontSize(12),
     fontFamily: getFontFamily('Inter_18pt', 400),
     color: '#79869F',
   },

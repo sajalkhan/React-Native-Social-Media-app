@@ -1,10 +1,11 @@
-import {StyleSheet} from 'react-native';
-import {getFontFamily} from '../../utils/helper';
+import { StyleSheet } from 'react-native';
+import { getFontFamily } from '../../utils/helper';
+import { horizontalScale, scaleFontSize } from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   notification: {
     backgroundColor: '#EEF5FD',
-    padding: 14,
+    padding: horizontalScale(14),
     borderRadius: 50,
     width: 48,
     height: 48,
@@ -25,7 +26,7 @@ const style = StyleSheet.create({
     position: 'absolute',
     top: 9,
     right: 8,
-    fontSize: 10,
+    fontSize: scaleFontSize(10),
     fontFamily: getFontFamily('Inter_18pt', 400),
   },
 });

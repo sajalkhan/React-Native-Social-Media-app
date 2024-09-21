@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { getFontFamily } from '../../utils/helper';
+import { horizontalScale, scaleFontSize, verticalScale } from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   userItem: {
@@ -7,13 +8,13 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: horizontalScale(15),
     height: 'auto',
   },
   imageWrapper: {
     height: 65,
     width: 65,
-    padding: 7,
+    padding: horizontalScale(7),
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#F35BAC',
@@ -29,8 +30,8 @@ const style = StyleSheet.create({
     overflow: 'hidden',
   },
   userName: {
-    fontSize: 14,
-    marginTop: 5,
+    fontSize: scaleFontSize(14),
+    marginTop: verticalScale(5),
     fontFamily: getFontFamily('Inter_18pt', 600),
     textAlign: 'center',
     color: '#022150',

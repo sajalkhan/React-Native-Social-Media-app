@@ -1,9 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { getFontFamily } from '../utils/helper';
+import { getFontFamily } from '../../utils/helper';
 
 const style = StyleSheet.create({
   homePage: {
-    margin: 24,
+    marginTop: 24,
+    marginLeft: 24,
+    marginRight: 24,
+    flex: 1,
   },
   titleWrapper: {
     display: 'flex',
@@ -12,17 +15,17 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   userStoryWrapper: {
-    marginTop: 12,
-    marginBottom: 12,
+    marginTop: 20,
+    marginBottom: 30,
     minHeight: 70,
     width: '100%',
+    height: 'auto',
   },
   userPostWrapper: {
-    marginTop: 40,
     marginBottom: 12,
     minHeight: 70,
     width: '100%',
-    height: '55%',
+    height: 'auto',
     overflow: 'hidden',
   },
   error: {
