@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
+import defaultImage from '../../assets/images/default_post.png';
 
 import styles from './style';
 
@@ -15,6 +16,7 @@ const UserPost: React.FC<UserStoryProps> = ({ userImg, userName, title }) => {
       <View style={styles.userInfo}>
         <View style={styles.imageWrapper}>
           <Image source={{ uri: userImg }} style={styles.userImage} resizeMode="cover" />
+          {/* <Image source={{ uri: userImg }} style={styles.userImage} resizeMode="cover" /> */}
         </View>
         <View style={styles.userDetails}>
           <Text style={styles.userName}>{userName}</Text>
@@ -22,7 +24,7 @@ const UserPost: React.FC<UserStoryProps> = ({ userImg, userName, title }) => {
         </View>
       </View>
 
-      <Image source={{ uri: userImg }} style={styles.userPostImage} resizeMode="cover" />
+      <Image source={defaultImage} style={styles.userPostImage} resizeMode="cover" />
     </View>
   );
 };
