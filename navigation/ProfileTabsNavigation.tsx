@@ -6,6 +6,13 @@ import ProfileTabContent from '../components/ProfileTabContent';
 
 const ProfileTabs = createMaterialTopTabNavigator();
 
+//INFO: If we need to load different component to different tab then we can update component from here
+const tabComponents: any = {
+  Photos: ProfileTabContent,
+  Videos: ProfileTabContent,
+  Saved: ProfileTabContent,
+};
+
 const ProfileTabsNavigation = () => {
   return (
     <ProfileTabs.Navigator
@@ -16,6 +23,8 @@ const ProfileTabsNavigation = () => {
     >
       {['Photos', 'Videos', 'Saved'].map((tabTitle, index) => {
         const key = `Tab${index + 1}`;
+        const Component = tabComponents[tabTitle];
+
         return (
           <ProfileTabs.Screen
             key={key}
@@ -24,7 +33,7 @@ const ProfileTabsNavigation = () => {
               // eslint-disable-next-line react/no-unstable-nested-components
               tabBarLabel: ({ focused }) => <ProfileTabTitle isFocused={focused} title={tabTitle} />,
             }}
-            component={ProfileTabContent}
+            component={Component}
           />
         );
       })}
