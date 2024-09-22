@@ -1,10 +1,22 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Routes } from './Routes';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import Home from '../screens/Home/Home';
 import Profile from '../screens/Profile/Profile';
+import { Routes } from './Routes';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const MainMenuNavigation = () => {
+  return (
+    <Drawer.Navigator screenOptions={{ headerShown: false }}>
+      <Drawer.Screen name={Routes.Home} component={Home} />
+      <Drawer.Screen name={Routes.Profile} component={Profile} />
+    </Drawer.Navigator>
+  );
+};
 
 const MainNavigation = () => {
   return (
@@ -12,11 +24,10 @@ const MainNavigation = () => {
       initialRouteName={Routes.Home}
       screenOptions={{
         headerShown: false,
-        gestureEnabled: true,
+        gestureEnabled: true, // Enable gestures for stack navigation
       }}
     >
-      <Stack.Screen name={Routes.Home} component={Home} />
-      <Stack.Screen name={Routes.Profile} component={Profile} />
+      <Stack.Screen name="Drawer" component={MainMenuNavigation} />
     </Stack.Navigator>
   );
 };

@@ -1,13 +1,15 @@
-/* eslint-disable no-unused-vars */
 import { StyleSheet } from 'react-native';
-import { getFontFamily } from '../../utils/helper';
 
-const style = StyleSheet.create({
-  error: {
-    color: 'red',
-    textAlign: 'center',
-    marginTop: 20,
+const globalStyle = StyleSheet.create({
+  backgroundWhite: {
+    backgroundColor: '#FFFFFF',
+  },
+  flex: {
+    flex: 1,
+  },
+  flexGrow: {
+    flexGrow: 1,
   },
 });
 
-export default style;
+export default globalStyle;
