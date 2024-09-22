@@ -11,6 +11,7 @@ import useGetAllUsers from './hooks/useGetAllUsers';
 import useGetAllPosts from './hooks/useGetAllPosts';
 
 import globalStyle from './assets/styles/globalStyle';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   const [screenDimensions, setScreenDimensions] = useState(Dimensions.get('screen')); // check screen dimension
@@ -36,39 +37,41 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView style={globalStyle.homePage}>
-      <StatusBar backgroundColor={'blue'} barStyle={'light-content'} />
-      <View style={globalStyle.titleWrapper}>
-        <Title>Let’s Explore</Title>
-        <Notification message={2} />
-      </View>
+    <NavigationContainer>
+      <SafeAreaView style={globalStyle.homePage}>
+        <StatusBar backgroundColor={'blue'} barStyle={'light-content'} />
+        <View style={globalStyle.titleWrapper}>
+          <Title>Let’s Explore</Title>
+          <Notification message={2} />
+        </View>
 
-      <View style={globalStyle.userStoryWrapper}>
+        <View style={globalStyle.userStoryWrapper}>
+          <FlatList
+            data={users}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={item => `${item.id}-${item.username}`}
+            renderItem={({ item }) => <UserStory userImg={item.image} userName={item.username} />}
+            onEndReached={hasMore && !loading ? loadMore : undefined}
+            onEndReachedThreshold={0.5}
+            ListFooterComponent={loading ? <FooterLoader /> : null}
+          />
+        </View>
+
         <FlatList
-          data={users}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={item => `${item.id}-${item.username}`}
-          renderItem={({ item }) => <UserStory userImg={item.image} userName={item.username} />}
-          onEndReached={hasMore && !loading ? loadMore : undefined}
+          data={posts}
+          style={globalStyle.userPostWrapper}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={item => `${item.post.id}`}
+          renderItem={({ item: { user, post } }) => (
+            <UserPost userName={user.username} userImg={user.image} title={post.title} />
+          )}
+          onEndReached={hasMorePost && !postLoading ? loadPosts : undefined}
           onEndReachedThreshold={0.5}
-          ListFooterComponent={loading ? <FooterLoader /> : null}
+          ListFooterComponent={postLoading ? <FooterLoader /> : null}
         />
-      </View>
-
-      <FlatList
-        data={posts}
-        style={globalStyle.userPostWrapper}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={item => `${item.post.id}`}
-        renderItem={({ item: { user, post } }) => (
-          <UserPost userName={user.username} userImg={user.image} title={post.title} />
-        )}
-        onEndReached={hasMorePost && !postLoading ? loadPosts : undefined}
-        onEndReachedThreshold={0.5}
-        ListFooterComponent={postLoading ? <FooterLoader /> : null}
-      />
-    </SafeAreaView>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
