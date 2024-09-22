@@ -4,12 +4,13 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import Home from '../screens/Home/Home';
 import Profile from '../screens/Profile/Profile';
+
 import { Routes } from './Routes';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const MainMenuNavigation = () => {
+const MainMenuNavigation: React.FC = () => {
   return (
     <Drawer.Navigator screenOptions={{ headerShown: false }}>
       <Drawer.Screen name={Routes.Home} component={Home} />
@@ -18,7 +19,7 @@ const MainMenuNavigation = () => {
   );
 };
 
-const MainNavigation = () => {
+const MainNavigation: React.FC = () => {
   return (
     <Stack.Navigator
       initialRouteName={Routes.Home}
